@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {tailwind} from './lib/tailwind';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.text}>¡Agregando tailwind! 👋</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,8 +16,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    ...tailwind('bg-darkShades-500'),
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text:{
+    ...tailwind('bg-blue-500 px-5 py-3 rounded-full text-white font-semibold text-lg'),
+  }
 });
