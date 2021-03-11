@@ -10,7 +10,7 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import AppNavigator from './app/navigation/AppNavigator';
 import AudioProvider from './app/context/AudioProvider';
 
@@ -55,7 +55,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    ...tailwind('bg-darkShades-500'),
+    ...tailwind('bg-lightShades-500'),
     alignItems: 'center',
     justifyContent: 'center',
   },
