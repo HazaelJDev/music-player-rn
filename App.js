@@ -10,9 +10,10 @@ import {
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import AppNavigator from './app/navigation/AppNavigator';
 import AudioProvider from './app/context/AudioProvider';
+import ThemeProvider from './app/context/ThemeProvider.js';
 
 
 //Definiendo las fuentes que usaremos en el proyecto
@@ -43,11 +44,13 @@ export default function App() {
     return null;
   }else{
     return (
-      <AudioProvider>
-        <NavigationContainer>
-          <AppNavigator />
-        </NavigationContainer>
-      </AudioProvider>
+      <ThemeProvider>
+        <AudioProvider>
+          <NavigationContainer>
+            <AppNavigator />
+          </NavigationContainer>
+        </AudioProvider>
+      </ThemeProvider>
     );
   }
 }

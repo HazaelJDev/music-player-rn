@@ -1,20 +1,24 @@
 import {tailwind} from '../../lib/tailwind';
-import React from 'react';
+import React, {useContext} from 'react';
 import { Text, View, Button } from 'react-native';
 import Nav from '../components/Nav'
+import {ThemeContext} from '../context/ThemeProvider';
 
 const Player = ({
     navigation,
-}) => (
-    <View style={styles.contentPlayer}>
-      <Nav type='Library' theme='dark' navigation={navigation}/>
-      <Text>Player Screen</Text>
+}) => {
+  const { dark, theme, toggle } = useContext(ThemeContext);
+  return(
+    <View style={[styles.contentPlayer, {backgroundColor: theme.bg}]}>
+      <Nav type='Library' theme='dark' navigation={navigation} isDark={dark} toggle={toggle} theme={theme}/>
+      <Text style={{color: theme.titleList}}>Player Screen</Text>
       <Button
         title="Go to Home"
         onPress={() => navigation.navigate('Home')}
       />
     </View>
-);
+  )
+};
 
 const styles = {
   contentPlayer: { 
