@@ -12,10 +12,7 @@ const Library = ({
     <View style={[styles.contentLibrary, {backgroundColor: theme.bg}]}>
       <Nav type='Library' theme='dark' navigation={navigation} isDark={dark} toggle={toggle} theme={theme}/>
       <Text style={{color: theme.titleList}}>Library Screen</Text>
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
-      />
+      
     </View>
   )
 };

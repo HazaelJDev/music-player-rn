@@ -12,10 +12,6 @@ const Player = ({
     <View style={[styles.contentPlayer, {backgroundColor: theme.bg}]}>
       <Nav type='Library' theme='dark' navigation={navigation} isDark={dark} toggle={toggle} theme={theme}/>
       <Text style={{color: theme.titleList}}>Player Screen</Text>
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
-      />
     </View>
   )
 };

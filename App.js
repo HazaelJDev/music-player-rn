@@ -14,23 +14,9 @@ import { NavigationContainer} from '@react-navigation/native';
 import AppNavigator from './app/navigation/AppNavigator';
 import AudioProvider from './app/context/AudioProvider';
 import ThemeProvider from './app/context/ThemeProvider.js';
+import fonts from './lib/fonts'
 
 
-//Definiendo las fuentes que usaremos en el proyecto
-const fonts = {
-  title: {
-    fontFamily:'Poppins_600SemiBold',
-    fontSize: 60,
-  },
-  subtitle: {
-    fontFamily:'Roboto_500Medium',
-    fontSize: 32,
-  },
-  body: {
-    fontFamily: 'Roboto_400Regular',
-    fontSize: 16,
-  },
-}
 
 export default function App() {
   //Cargando las fuentes con el Hook
