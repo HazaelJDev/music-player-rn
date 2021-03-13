@@ -22,7 +22,12 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'stretch',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
+        paddingHorizontal: 24,
+        paddingVertical: 11,
+        position: 'absolute',
+        top: 0,
+        left: 0,
     }    
 }
 
