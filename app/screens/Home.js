@@ -4,31 +4,31 @@ import { Text, View, Button, StyleSheet, Image, ImageBackground } from 'react-na
 import Nav from '../components/Nav'
 import {ThemeContext} from '../context/ThemeProvider';
 import Playing from '../components/Playing';
+import  ListHome from '../components/ListHome';
+import fakeList from '../../test/fakeList';
 
 const Home = ({
-    navigation,
+  navigation,
 }) => {
   const { dark, theme, toggle } = useContext(ThemeContext);
     
   return (
     <View style={[styles.contentHome, {backgroundColor: theme.bg}]}>
       <Nav type='Home' navigation={navigation} isDark={dark} toggle={toggle} theme={theme}/>
+      <ListHome data={fakeList} theme={theme} navigation={navigation}/>
       <Playing theme={theme}/>
-      <Text style={{color: theme.titleList}}>Home</Text>
-      <Button
-        title="Go to Player"
-        onPress={() => navigation.navigate('Player')}
-      />
-
     </View>
   )
 };
 
 const styles = StyleSheet.create({
   contentHome: { 
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'space-around' 
+    display: 'flex',
+    flex: 1,
+    alignItems: 'stretch', 
+    justifyContent: 'flex-start',
+    with: "100%",
+    paddingHorizontal: 16
   }
 });
 
