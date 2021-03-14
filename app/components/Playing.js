@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, View, Image, ImageBackground} from 'react-native';
+import { Text, View, Image} from 'react-native';
 import fonts from '../../lib/fonts';
 import { MaterialIcons,} from '@expo/vector-icons';
 //import { BlurView } from 'expo';
-import img from '../../assets/albums/sinonimo.png';
 //import {ProgressBar} from 'react-native-paper' En un futuro implementar esta
 const ProgressBar = () => {
     return (
@@ -28,7 +27,7 @@ const Playing = ({
                     <Text style={[{...fonts.body}, {color: theme.textPlaying}]}>-1:07</Text>
                 </View>
             </View>
-            <ImageBackground style={styles.album} source={{uri: require("../../assets/albums/sinonimo.png")}} resizeMode='cover' blurRadius={3} defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
+            <Image style={styles.album} source={{uri: require("../../assets/albums/sinonimo.png")}} resizeMode='cover' blurRadius={3} defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
             <ProgressBar />
         </View>
     )
@@ -107,7 +106,6 @@ const styles = {
     controlls: {
         margingHorizontal: 16,
     }
-
 }
 
 export default Playing;
