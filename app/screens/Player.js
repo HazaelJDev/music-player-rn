@@ -40,7 +40,7 @@ const Player = ({navigation}) => {
       <Nav type='Library' navigation={navigation} isDark={dark} toggle={toggle} theme={theme}/>
       <Caratula data={currentlySong} theme={theme} value={70} />
       <SongData theme={theme} data={currentlySong}/>
-      {/* <Controlls handlerCurrentlySong={handlerCurrentlySong}/> */}
+      <Controlls handlerCurrentlySong={handlerCurrentlySong}/>
     </View>
   )
 };

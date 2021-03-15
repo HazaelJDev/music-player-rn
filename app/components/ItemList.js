@@ -8,7 +8,6 @@ const ItemList = ({
 }) => {
     return (
         <TouchableOpacity style={styles.contentItem} key={data.key} onPress={() => navigation.navigate('Player')}>
-            {console.log(data.album)}
             <Image style={styles.album} source={{uri: data.album}} resizeMode='cover' defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
             <View style={[styles.contentMusic,{backgroundColor:theme.bgItemList}]}>
                 <View style={styles.dataSong}>

@@ -50,7 +50,7 @@ export const ThemeProvider = ({ children }) => {
     // To toggle between dark and light modes
     const toggle = () => {
         setDark(!dark)
-        console.log('toggled');
+        //console.log('toggled');
     }
 
     // Filter the styles based on the theme selected
