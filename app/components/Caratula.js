@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Text, View, ImageBackground, Image } from 'react-native';
 import { MaterialIcons,} from '@expo/vector-icons';
 
-const Volumen = ({iconColor, value}) => {
+const Volumen = ({iconColor, value, bgBarPlayer}) => {
     const [mute, setMute] = useState(false);
     return (
         <View style={styles.contentVolumen}>
             <MaterialIcons name={mute ? 'volume-off': 'volume-down'} size={48} color={mute ? '#F9312A' : iconColor} onPress={() => setMute(!mute)}/>
-            <View style={styles.barVolumen}>
+            <View style={[styles.barVolumen, {backgroundColor: bgBarPlayer}]}>
                 <View style={[styles.progressVolumen, {width: `${mute ? 0 : value}%`}]} />
                 <View style={styles.circleIndicator} />
             </View>
@@ -16,13 +16,13 @@ const Volumen = ({iconColor, value}) => {
 }
 
 const Caratula = ({
-    theme, value
+    theme, value,data
 }) => {
     return (
-        <ImageBackground style={styles.contentCaratula} source={{uri: require('../../assets/albums/sinonimo.png')}} resizeMode='cover' blurRadius={3} defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}>
+        <ImageBackground style={styles.contentCaratula} source={{uri: data.album}} resizeMode='cover' blurRadius={3} defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}>
             <View style={[styles.contentOverlay, {backgroundColor: theme.overlayCaratula}]}>
-                <Image style={styles.album} source={{uri: require('../../assets/albums/sinonimo.png')}} resizeMode='cover' defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
-                <Volumen iconColor={theme.iconVolumen} value={value}/>
+                <Image style={styles.album} source={{uri: data.album}} resizeMode='cover' defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
+                <Volumen iconColor={theme.iconVolumen} value={value} bgBarPlayer={theme.bgBarPlayer}/>
             </View>
         </ImageBackground>
     );
@@ -67,10 +67,11 @@ const styles = {
         alignItems: 'center',
         width: 200,
         height: 4,
-        backgroundColor: '#DDDDDD',
+        borderRadius: 2,
     },
     progressVolumen: {
         height: 4,
+        borderRadius: 2,
         backgroundColor: '#0074D9',
     },
     circleIndicator:{
