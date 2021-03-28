@@ -9,7 +9,7 @@ const SongData = ({
     return (
         <View style={styles.contentSong}>
             <View style={styles.contentData}>
-                <Text style={{...fonts.subtitle, color: theme.titlePlayer}}>{data.song}</Text>
+                <Text numberOfLines={1} style={{...fonts.subtitle, color: theme.titlePlayer}}>{data.song}</Text>
                 <Text style={{...fonts.body, color: theme.artistPlayer, marginTop: 8}}>{data.artist}</Text>
             </View>
             <ProgressBarSong textColor={theme.numPlayer} bgBarPlayer={theme.bgBarPlayer} />  

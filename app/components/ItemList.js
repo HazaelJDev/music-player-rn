@@ -4,15 +4,27 @@ import fonts from '../../lib/fonts';
 import { MaterialIcons,} from '@expo/vector-icons';
 
 const ItemList = ({
-    data, theme, navigation
+    data, theme, navigation,
+    song,
+    artist,
+    duration,
+    onAudioPress,
+    isPlaying,
+    activeListItem,
 }) => {
     return (
-        <TouchableOpacity style={styles.contentItem} key={data.key} onPress={() => navigation.navigate('Player')}>
+        <TouchableOpacity style={styles.contentItem} key={data.key} onPress={() => {
+            onAudioPress()
+            navigation.navigate('Player')
+        }}>
             <Image style={styles.album} source={{uri: data.album}} resizeMode='cover' defaultSource={{uri: require("../../assets/albums/with-out-face.png")}}/>
-            <View style={[styles.contentMusic,{backgroundColor:theme.bgItemList}]}>
+            <View style={[styles.contentMusic,{backgroundColor: activeListItem ? bgItemListActive : theme.bgItemList}]}>
                 <View style={styles.dataSong}>
-                    <Text style={[{...fonts.subtitle}, {color: theme.textItemList}]}>{data.song}</Text>
-                    <Text style={[{...fonts.body}, {color: theme.textItemList}]}>{data.artist}</Text>
+                    <Text numberOfLines={1} style={[{...fonts.subtitle}, {color: theme.textItemList}]}>{song}</Text>
+                    <View style={styles.dataSongLastRow}>
+                        <Text style={[{...fonts.body}, {color: theme.textItemList}]}>{artist}</Text>
+                        <Text style={[{...fonts.body}, {color: theme.textItemList}]}>{duration}</Text>
+                    </View>
                 </View>
             </View>
         </TouchableOpacity>
@@ -49,6 +61,13 @@ const styles = {
         paddingHorizontal: 20,
         width: 226,
         height: 82
+    },
+    dataSongLastRow:{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "stretch",
+        justifyContent: 'space-between',
+        with: '70%'
     },
     album:{
         //Checar por que no funciona el border radius en la imagen 

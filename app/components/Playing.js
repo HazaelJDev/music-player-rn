@@ -21,7 +21,7 @@ const Playing = ({
                 <MaterialIcons name='play-circle-fill' size={48} color='#F1F1F1'/>
                 <View style={styles.songData}>
                     <View style={styles.dataSong}>
-                        <Text style={[{...fonts.canciones}, {color: theme.textPlaying}]}>Abrazos impares</Text>
+                        <Text numberOfLines={1} style={[{...fonts.canciones}, {color: theme.textPlaying}]}>Abrazos impares</Text>
                         <Text style={[{...fonts.body}, {color: theme.textPlaying}]}>Rayden</Text>
                     </View>
                     <Text style={[{...fonts.body}, {color: theme.textPlaying}]}>-1:07</Text>
